@@ -117,7 +117,7 @@
 import {
     ref,
 } from 'vue';
-import { useToolBarStore } from '@/stores/toolBar';
+import { useToolBarStore } from '@/stores/toolbar';
 import { useNodeStore } from '@/stores/node';
 import { useSettingStore } from '@/stores/setting';
 const toolBarStore = useToolBarStore();
