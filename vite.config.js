@@ -32,7 +32,7 @@ export default defineConfig(({
         resolvers: [ElementPlusResolver()],
       })
     ],
-    base: './',
+    base: '/h5-editor/dist/',
     minify: true,
     sourceMap: true,
     resolve: {
