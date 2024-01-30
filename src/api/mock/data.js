@@ -1,109 +1,109 @@
 const material1 = [
     {
         "id": 1,
-        "url": "/mock/images/1.png",
+        "url": "/h5-editor/mock/images/1.png", 
         "type": "material",
     },
     {
         "id": 2,
-        "url": "/mock/images/2.png",
+        "url": "/h5-editor/mock/images/2.png",
         "type": "material",
     },
     {
         "id": 3,
-        "url": "/mock/images/3.png",
+        "url": "/h5-editor/mock/images/3.png",
         "type": "material",
     },
     {
         "id": 4,
-        "url": "/mock/images/4.png",
+        "url": "/h5-editor/mock/images/4.png",
         "type": "material",
     },
     {
         "id": 5,
-        "url": "/mock/images/5.png",
+        "url": "/h5-editor/mock/images/5.png",
         "type": "material",
     },
     {
         "id": 6,
-        "url": "/mock/images/6.png",
+        "url": "/h5-editor/mock/images/6.png",
         "type": "material",
     }
 ];
 const material2 = [
     {
         "id": 1,
-        "url": "/mock/images/10.png",
+        "url": "/h5-editor/mock/images/10.png",
         "type": "material",
     },
     {
         "id": 2,
-        "url": "/mock/images/11.png",
+        "url": "/h5-editor/mock/images/11.png",
         "type": "material",
     },
     {
         "id": 3,
-        "url": "/mock/images/12.png",
+        "url": "/h5-editor/mock/images/12.png",
         "type": "material",
     },
     {
         "id": 4,
-        "url": "/mock/images/13.png",
+        "url": "/h5-editor/mock/images/13.png",
         "type": "material",
     },
     {
         "id": 5,
-        "url": "/mock/images/14.png",
+        "url": "/h5-editor/mock/images/14.png",
         "type": "material",
     },
     {
         "id": 6,
-        "url": "/mock/images/15.png",
+        "url": "/h5-editor/mock/images/15.png",
         "type": "material",
     }
 ];
 const background = [
     {
         "id": 1,
-        "url": "/mock/images/21.jpg",
+        "url": "/h5-editor/mock/images/21.jpg",
         "type": "background",
     },
     {
         "id": 2,
-        "url": "/mock/images/22.jpg",
+        "url": "/h5-editor/mock/images/22.jpg",
         "type": "background",
     },
     {
         "id": 3,
-        "url": "/mock/images/23.jpg",
+        "url": "/h5-editor/mock/images/23.jpg",
         "type": "background",
     },
     {
         "id": 4,
-        "url": "/mock/images/24.jpg",
+        "url": "/h5-editor/mock/images/24.jpg",
         "type": "background",
     },
     {
         "id": 5,
-        "url": "/mock/images/25.jpg",
+        "url": "/h5-editor/mock/images/25.jpg",
         "type": "background",
     },
     {
         "id": 6,
-        "url": "/mock/images/26.jpg",
+        "url": "/h5-editor/mock/images/26.jpg",
         "type": "background",
     }
 ];
 const group = [{
     "id": 1,
-    "thumbnailUrl": "/mock/images/30.jpg",
+    "thumbnailUrl": "/h5-editor/mock/images/30.jpg",
     "type": "template",
     "json": `{
         "material": [
             {
                 "id": "material_0_1706515793584",
                 "type": "material",
-                "src": "/mock/images/1.png",
+                "src": "/h5-editor/mock/images/1.png",
                 "style": {
                     "position": "absolute",
                     "width": "316px",
@@ -121,7 +121,7 @@ const group = [{
             {
                 "id": "material_1_1706515793584",
                 "type": "material",
-                "src": "/mock/images/3.png",
+                "src": "/h5-editor/mock/images/3.png",
                 "style": {
                     "position": "absolute",
                     "width": "174px",
@@ -140,7 +140,7 @@ const group = [{
             {
                 "id": "material_2_1706515793584",
                 "type": "material",
-                "src": "/mock/images/2.png",
+                "src": "/h5-editor/mock/images/2.png",
                 "style": {
                     "position": "absolute",
                     "width": "79px",
@@ -160,14 +160,14 @@ const group = [{
     }`
 }, {
     "id": 2,
-    "thumbnailUrl": "/mock/images/31.jpg",
+    "thumbnailUrl": "/h5-editor/mock/images/31.jpg",
     "type": "template",
     "json": `{
         "material": [
             {
                 "id": "material_1706515394601",
                 "type": "material",
-                "src": "/mock/images/5.png",
+                "src": "/h5-editor/mock/images/5.png",
                 "style": {
                     "position": "absolute",
                     "width": "122px",
@@ -184,7 +184,7 @@ const group = [{
             {
                 "id": "material_1706515436671",
                 "type": "material",
-                "src": "/mock/images/4.png",
+                "src": "/h5-editor/mock/images/4.png",
                 "style": {
                     "position": "absolute",
                     "width": "155px",
@@ -229,13 +229,13 @@ const group = [{
 }];
 const music = [{
     "id": 1,
-    "url": "/mock/music/1.mp3",
+    "url": "/h5-editor/mock/music/1.mp3",
     "keyword": "Adventures of Flying Jack.mp3",
     "type": "music",
 },
 {
     "id": 2,
-    "url": "/mock/music/2.mp3",
+    "url": "/h5-editor/mock/music/2.mp3",
     "keyword": "Advertime.mp3",
     "type": "music"
 }];
@@ -344,28 +344,28 @@ const switchData = (url) => {
                 {
                     "id": 1,
                     "keyword": "CangErXiaoWanZi",
-                    "url": "/mock/fonts/CangErXiaoWanZi.ttf",
-                    "thumbnailUrl": "/mock/fonts/CangErXiaoWanZi.png",
+                    "url": "/h5-editor/mock/fonts/CangErXiaoWanZi.ttf",
+                    "thumbnailUrl": "/h5-editor/mock/fonts/CangErXiaoWanZi.png",
                 }, {
                     "id": 2,
                     "keyword": "SuCaiJiShiKuFangTi",
-                    "url": "/mock/fonts/SuCaiJiShiKuFangTi.ttf",
-                    "thumbnailUrl": "/mock/fonts/SuCaiJiShiKuFangTi.png",
+                    "url": "/h5-editor/mock/fonts/SuCaiJiShiKuFangTi.ttf",
+                    "thumbnailUrl": "/h5-editor/mock/fonts/SuCaiJiShiKuFangTi.png",
                 }
             ],
             "mask": [
                 {
                     "id": 1,
-                    "url": "/mock/images/mask/1.png",
-                    "thumbnailUrl": "/mock/images/mask/icon/1.png",
+                    "url": "/h5-editor/mock/images/mask/1.png",
+                    "thumbnailUrl": "/h5-editor/mock/images/mask/icon/1.png",
                 }, {
                     "id": 2,
-                    "url": "/mock/images/mask/2.png",
-                    "thumbnailUrl": "/mock/images/mask/icon/2.png",
+                    "url": "/h5-editor/mock/images/mask/2.png",
+                    "thumbnailUrl": "/h5-editor/mock/images/mask/icon/2.png",
                 }, {
                     "id": 3,
-                    "url": "/mock/images/mask/3.png",
-                    "thumbnailUrl": "/mock/images/mask/icon/3.png",
+                    "url": "/h5-editor/mock/images/mask/3.png",
+                    "thumbnailUrl": "/h5-editor/mock/images/mask/icon/3.png",
                 }
             ]
         };
@@ -465,14 +465,14 @@ const switchData = (url) => {
                 "id": 1,
                 "cid": 0,
                 "title": "一行白鹭上青天",
-                "cover": "/mock/images/20.jpg",
+                "cover": "/h5-editor/mock/images/20.jpg",
                 "content": [
                     {
                         "background": [
                             {
                                 "id": "background_1704874019142",
                                 "type": "background",
-                                "src": "/mock/images/20.jpg",
+                                "src": "/h5-editor/mock/images/20.jpg",
                                 "style": {
                                     "position": "absolute",
                                     "width": "377px",
@@ -487,7 +487,7 @@ const switchData = (url) => {
                             {
                                 "id": "material_1704874027661",
                                 "type": "material",
-                                "src": "/mock/images/6.png",
+                                "src": "/h5-editor/mock/images/6.png",
                                 "style": {
                                     "position": "absolute",
                                     "width": "387px",
@@ -505,7 +505,7 @@ const switchData = (url) => {
                             {
                                 "id": "material_1704874046106",
                                 "type": "material",
-                                "src": "/mock/images/2.png",
+                                "src": "/h5-editor/mock/images/2.png",
                                 "style": {
                                     "position": "absolute",
                                     "width": "142px",
@@ -522,7 +522,7 @@ const switchData = (url) => {
                             {
                                 "id": "material_1704874066950",
                                 "type": "material",
-                                "src": "/mock/images/5.png",
+                                "src": "/h5-editor/mock/images/5.png",
                                 "style": {
                                     "position": "absolute",
                                     "width": "167px",
@@ -541,7 +541,7 @@ const switchData = (url) => {
                             {
                                 "id": "material_1704874077722",
                                 "type": "material",
-                                "src": "/mock/images/4.png",
+                                "src": "/h5-editor/mock/images/4.png",
                                 "style": {
                                     "position": "absolute",
                                     "width": "88px",

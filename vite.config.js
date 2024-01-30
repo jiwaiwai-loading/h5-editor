@@ -32,7 +32,7 @@ export default defineConfig(({
         resolvers: [ElementPlusResolver()],
       })
     ],
-    base: '/h5-editor/',
+    base: mode == 'mock' ? '/h5-editor/' : '/',
     minify: true,
     sourceMap: true,
     resolve: {
