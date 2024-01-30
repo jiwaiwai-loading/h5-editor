@@ -2,8 +2,9 @@ import {
     createRouter,
     createWebHistory
 } from 'vue-router'
-import Index from '@/views/Index.vue'
-import NotFound from '@/views/404.vue'
+
+const Index = () => import('@/views/Index.vue')
+const NotFound = () => import('@/views/404.vue')
 
 const defaultRouter = [{
     path: '/',
