@@ -22,7 +22,7 @@ Please refer to the package.json document for details.
 
 ## 体验 Demo
 
-See [H5 Editor](http://editor.zhifoukeji.com)
+See [H5 Editor](https://jiwaiwai-loading.github.io/h5-editor/)
 
 ## 项目安装 Project Setup
 
