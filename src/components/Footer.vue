@@ -9,7 +9,7 @@
                 <template #default>
                     <div class="ub ub-ac ub-pc">
                         <div class="ub ub-ver ub-ac ub-pc umar-r1">
-                            <img src="/images/wechat.jpg" class="feedback-box uba ushadow">
+                            <img src="@/assets/images/wechat.jpg" class="feedback-box uba ushadow">
                             <div class="umar-t1">Wechat</div>
                         </div>
                         <div class="ub ub-ver ub-ac ub-pc">

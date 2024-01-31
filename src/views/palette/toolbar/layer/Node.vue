@@ -15,7 +15,7 @@
             {{ utils.trimAll(data.content, ' ') }}
         </div>
         <div v-else-if="data.type == 'map'" @click.stop="selectNode" class="ub ub-f1 ub-ac ub-pc ubtn">
-            <img src="/images/map.jpg" style="min-height: 10px; max-height: 48px; max-width:99%;">
+            <img src="@/assets/images/map.jpg" style="min-height: 10px; max-height: 48px; max-width:99%;">
         </div>
         <div v-else-if="data.type == 'form'" @click.stop="selectNode" class="ub ub-f1 ub-ac ub-pc upad-a04 ubtn">表单</div>
         <div v-else-if="data.type == 'effects'" @click.stop="selectNode" class="ub ub-f1 ub-ac ub-pc upad-a04 ubtn">特效</div>

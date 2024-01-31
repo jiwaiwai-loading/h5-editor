@@ -1,9 +1,9 @@
 <template>
     <div id="driver-palette" :style="'transform:scale(' + scale + ');'">
         <div @mousewheel.stop.prevent="" class="editor-area ub ub-ac ub-pc uradius-a03 uz2" :style="'width:' + size.width + 'px;height:' + size.height + 'px'">
-            <div class="ub ub-img5" style="position: absolute; height: calc(100% + 125px); width: calc(100% + 20px); z-index: -9999; background-image: url(/images/phone.png);"></div>
+            <div class="phone-bg ub-img5 "></div>
             <div v-if="nodeStore.myTemplate.assets && nodeStore.myTemplate.assets.music" class="uabs-tr uz2">
-                <div @click="nodeStore.playMusic()" :class="nodeStore.musicPlaying?' animate__animated animate__slower animate__linear animate__infinite animate__rotate':''" class="ub ub-ac ub-pc music-btn umar-a08 uba uradius-a100 uof ubtn">
+                <div @click="nodeStore.playMusic()" :class="nodeStore.musicPlaying ? ' animate__animated animate__slower animate__linear animate__infinite animate__rotate' : ''" class="ub ub-ac ub-pc music-btn umar-a08 uba uradius-a100 uof ubtn">
                     <span class="uf-s15 uc-font-white">♪</span>
                     <div v-if="!nodeStore.musicPlaying" class="uabs uf-s12 ub ub-ac ub-pc uc-font-white" style="transform:rotate(45deg);">|</div>
                 </div>
@@ -37,9 +37,16 @@ const props = defineProps({
 </script>
 
 <style scoped>
-    .music-btn{
-        width: 30px;
-        height: 30px;
-        background-color: rgba(0,0,0,0.4);
-    }
-</style>
+.phone-bg {
+    position: absolute;
+    background-image: url('@/assets/images/phone.png');
+    height: calc(100% + 125px);
+    width: calc(100% + 20px);
+    z-index: -9999;
+}
+
+.music-btn {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+}</style>

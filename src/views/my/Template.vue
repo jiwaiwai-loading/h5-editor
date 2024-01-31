@@ -45,7 +45,7 @@
             </div>
             <div v-else class="ub ub-ac ub-pc" style="margin-top: 100px;">
                 <div v-if="invite[category.id] && invite[category.id].isReturn" class="ub ub-ver ub-ac ub-pc">
-                    <img src="/images/empty.png" style="width: 150px;" />
+                    <img src="@/assets/images/empty.png" style="width: 150px;" />
                     <div class="uf-s1 uc-font-gray1">该分类下暂无模板</div>
                     <div class="umar-t2"><el-button @click="nodeStore.newNodes()" icon="el-icon-circle-plus-outline" type="primary" plain size="small">{{ settingStore.concatLang(['common.add', 'menu.template']) }}</el-button></div>
                 </div>
@@ -54,7 +54,7 @@
         </el-tab-pane>
     </el-tabs>
     <div v-else class="ub ub-ac ub-pc ub-ver upad-a1" style="margin-top: 100px;">
-        <img src="/images/noauth.png" style="width: 150px;" />
+        <img src="@/assets/images/noauth.png" style="width: 150px;" />
         <div class="uf-s1 uc-font-gray1 ut-c"> {{ settingStore.t('user.logged') }}</div>
         <div class="umar-t2">
             <el-button @click="loginCom.login({ module: 'ledger' })" :icon="User" type="primary" plain size="small">{{ settingStore.t('user.login') }}</el-button>

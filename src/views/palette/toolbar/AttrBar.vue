@@ -22,7 +22,7 @@
             <div class="ub ub-pc ubb">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('text.fontFamily')" placement="top-start">
-                        <img src="/images/font-family.png">
+                        <img src="@/assets/images/font-family.png">
                     </el-tooltip>
                 </div>
                 <div class="ub ub-f1 umar-r06">
@@ -49,7 +49,7 @@
             <div class="ub ub-pc ubb">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('text.fontSize')" placement="top-start">
-                        <img src="/images/font-size.png">
+                        <img src="@/assets/images/font-size.png">
                     </el-tooltip>
                 </div>
                 <el-slider v-model="attr['font-size']" @change="val => updateAttr('style', 'font-size', val + 'px', true)" @input="val => updateAttr('style', 'font-size', val + 'px', false)" :min="10" :max="200" size="small" :format-tooltip="val => val + 'px'"></el-slider>
@@ -57,7 +57,7 @@
             <div class="ub ub-pc ubb">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('text.letterSpacing')" placement="top-start">
-                        <img src="/images/letter-spacing.png">
+                        <img src="@/assets/images/letter-spacing.png">
                     </el-tooltip>
                 </div>
                 <el-slider v-model="attr['letter-spacing']" @change="val => updateAttr('style', 'letter-spacing', val + 'px', true)" @input="val => updateAttr('style', 'letter-spacing', val + 'px', false)" :min="-10" :max="100" size="small" :format-tooltip="val => val + 'px'"></el-slider>
@@ -65,7 +65,7 @@
             <div class="ub ub-pc ubb">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('text.font')" placement="top-start">
-                        <img src="/images/font-more.png">
+                        <img src="@/assets/images/font-more.png">
                     </el-tooltip>
                 </div>
                 <div>
@@ -77,7 +77,7 @@
             <div class="ub ub-pc ubb">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('text.textAlign')" placement="top-start">
-                        <img src="/images/font-align.png">
+                        <img src="@/assets/images/font-align.png">
                     </el-tooltip>
                 </div>
                 <el-radio-group v-model="attr['text-align']" @change="val => updateAttr('style', 'text-align', val, true)">
@@ -89,7 +89,7 @@
             <div class="ub ub-pc ubb">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('text.fontColor')" placement="top-start">
-                        <img src="/images/font-color.png">
+                        <img src="@/assets/images/font-color.png">
                     </el-tooltip>
                 </div>
                 <div class="ub ub-pc ub-f1">
@@ -109,7 +109,7 @@
             <div class="ub ub-pc ubb">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('dom.bgc')" placement="top-start">
-                        <img src="/images/bg-color.png">
+                        <img src="@/assets/images/bg-color.png">
                     </el-tooltip>
                 </div>
                 <Gradient v-model="attr['background']" @change="val => updateAttr('style', 'background', val, true)"></Gradient>
@@ -117,7 +117,7 @@
             <div class="ub ub-pc ubb">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('dom.opacity')" placement="top-start">
-                        <img src="/images/opacity.png">
+                        <img src="@/assets/images/opacity.png">
                     </el-tooltip>
                 </div>
                 <el-slider v-model="attr.opacity" @change="val => updateAttr('style', 'opacity', val, true)" @input="val => updateAttr('style', 'opacity', val, false)" :step="0.01" :min="0" :max="1" size="small" :format-tooltip="val => (val * 100).toFixed(0) + '%'"></el-slider>
@@ -125,7 +125,7 @@
             <div class="ub ub-pc ubb">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('dom.radius')" placement="top-start">
-                        <img src="/images/radius.png">
+                        <img src="@/assets/images/radius.png">
                     </el-tooltip>
                 </div>
                 <el-slider v-model="attr['border-radius']" @change="val => updateAttr('style', 'border-radius', val + '%', true)" @input="val => updateAttr('style', 'border-radius', val + '%', false)" :min="0" :max="50" :format-tooltip="val => val + '%'" size="small"></el-slider>
@@ -133,7 +133,7 @@
             <div class="ub ubb">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('dom.border')" placement="top-start">
-                        <img src="/images/border.png">
+                        <img src="@/assets/images/border.png">
                     </el-tooltip>
                 </div>
                 <div class="ub ub-ver">
@@ -153,7 +153,7 @@
             <div class="ub ub-f1 ubb">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('dom.shadow')" placement="top-start">
-                        <img src="/images/shadow.png">
+                        <img src="@/assets/images/shadow.png">
                     </el-tooltip>
                 </div>
                 <div class="ub ub-ver ub-f1 ">
@@ -169,14 +169,14 @@
             <div v-if="nodeStore.checkedNode.type != 'map' && nodeStore.checkedNode.type != 'form'" class="ub ub-f1">
                 <div class="ub ub-ac ub-pc uc-bg-gray attr-img">
                     <el-tooltip effect="dark" :content="settingStore.t('dom.shpape')" placement="top-start">
-                        <img src="/images/shape.png">
+                        <img src="@/assets/images/shape.png">
                     </el-tooltip>
                 </div>
                 <div class="ub ub-f1 ub-wrap">
                     <template v-for="mask in attrAssets.mask">
                         <img @click="updateShape(mask.url)" :src="mask.thumbnailUrl" class="umar-a04 ubtn ushadow uradius-a03" style="width: 18px;height: 18px;">
                     </template>
-                    <img @click="updateShape('forbid')" src="/images/forbid.png" class="umar-a04 ubtn" style="width: 18px;height: 18px;">
+                    <img @click="updateShape('forbid')" src="@/assets/images/forbid.png" class="umar-a04 ubtn" style="width: 18px;height: 18px;">
                 </div>
             </div>
             <!-- E 形状设置-->

@@ -47,7 +47,7 @@
             </div>
         </template>
         <div v-if="layerList.length == 0" class="umar-t2 ut-c uc-font-gray2">
-            <img src="/images/empty.png" style="width: 100px;" />
+            <img src="@/assets/images/empty.png" style="width: 100px;" />
         </div>
     </div>
 </template>
@@ -442,7 +442,6 @@ onMounted(() => {
 }
 
 .group-drag {
-    position: absolute;
     width: 100%;
     cursor: move;
     -webkit-user-drag: element !important;

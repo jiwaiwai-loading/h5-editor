@@ -23,7 +23,7 @@
           <span>打开小程序 </span>
           <el-popover placement="top" width="210px" trigger="hover">
             <div>
-              <img src="/images/ledger.jpg" style="height: 180px;width: 180px;">
+              <img src="@/assets/images/ledger.jpg" style="height: 180px;width: 180px;">
               <p class="ut-c uf-s06">微信扫一扫打开小程序</p>
             </div>
             <template #reference>
