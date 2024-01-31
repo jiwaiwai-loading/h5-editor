@@ -1,5 +1,5 @@
 <template>
-    <div class="uabs-t ut-c uc-bg-gray bar-title">{{ settingStore.t('common.layer') }}</div>
+    <div class="uabs-t ub-f1 ut-c uc-bg-gray bar-title">{{ settingStore.t('common.layer') }}</div>
     <div class="uabs ut-c uof-y-s ubt uc-border-gray node-list" style="top: 30px;">
         <template v-for="item, index in layerList">
             <div v-if="isGroup(item)" :key="'node' + index" :class="nodeStore.multipleNode[item[0].id] && nodeStore.multipleNode[item[0].id].group == item[0].group ? 'uba uc-border-main' : 'ubb'" class="ub">

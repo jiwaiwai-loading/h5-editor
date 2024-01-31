@@ -1,6 +1,6 @@
 # H5 编辑器 H5-Editor
 
-H5 编辑器。通过拖拉拽生成漂亮的HTML页面，并支持各种动画效果。可制作各类邀请函、请柬、活动宣传页面等。兼容所有主流浏览器，小程序等。
+H5 编辑器。通过拖拉拽生成漂亮的HTML页面，并支持各种动画效果、 黑暗模式、国际化。可用于制作各类邀请函、请柬、活动宣传页面等。兼容所有主流浏览器，小程序等。 
 H5 Editor. Generate beautiful HTML pages through drag-and-drop, with support for various animation effects. It can be used to create various invitations, cards, event promotional pages, and more. Compatible with all mainstream browsers, including mini-programs, etc.
     
 ## 主要技术栈 Main technology stack
@@ -36,11 +36,13 @@ npm install
 ```sh
 npm run Mock
 ```
+See http://localhost:8000/h5-editor
 
 开发模式运行 Run in development mode
 ```sh
 npm run dev
 ```
+See http://localhost:8000
 
 ## 打包 Compile and Minify for Production
 

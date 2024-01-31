@@ -1,5 +1,5 @@
 <template>
-    <div class="uabs-t ut-c uc-bg-gray bar-title">{{ settingStore.t('common.page') }}</div>
+    <div class="uabs-t ub-f1 ubl uc-border-gray ut-c uc-bg-gray bar-title">{{ settingStore.t('common.page') }}</div>
     <div class="uabs ubt uc-border-gray ut-c uof-y-s" style="top: 30px;">
         <div v-for="item, index in nodeStore.nodes" :key="index" class="uabs" :style="'top:' + ((index * 240) + 10) + 'px;'" style="width: 375px; height: 750px; margin-left:20px; transform-origin: left top; transform: scale(0.3);">
             <div @click="nodeStore.currentPage = index" :class="nodeStore.currentPage == index ? ' uba2 uc-border-main' : 'uba2 uc-border-gray'" class="uabs uz2 page-mask uradius-a12">
@@ -24,10 +24,6 @@
 </template>
 
 <script setup>
-import {
-    ref,
-    onMounted
-} from 'vue';
 import { ArrowUpBold, ArrowDownBold, DocumentCopy, Delete, Plus } from '@element-plus/icons-vue';
 import Panel from '../Panel.vue';
 import { useNodeStore } from '@/stores/node';
