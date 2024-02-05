@@ -35,6 +35,7 @@
         </div>
       </div>
     </div>
+    <div v-if="data.length==0" v-loading="true" class="umar-t2"></div>
   </div>
 
   <div v-show="showFluid" class="uabs ub ub-ver ub-f1 uc-bg uz5">

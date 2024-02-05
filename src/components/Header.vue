@@ -6,7 +6,7 @@
             <div @click="save" class="uf-s08 uc-font-gray1">{{ settingStore.t('common.appDesc') }}</div>
         </div>
         <span id="driver-theme">
-            <el-switch  v-model="settingStore.theme" @change="settingStore.switchTheme" inline-prompt :active-icon="Moon" active-value="dark" :inactive-icon="Sunny" inactive-value="light" size="small" width="35px" style="--el-switch-on-color: var(--el-border-color-light); --el-switch-off-color:var(--el-overlay-color-lighter);" />
+            <el-switch v-model="settingStore.theme" @change="settingStore.switchTheme" inline-prompt :active-icon="Moon" active-value="dark" :inactive-icon="Sunny" inactive-value="light" size="small" width="35px" style="--el-switch-on-color: var(--el-border-color-light); --el-switch-off-color:var(--el-overlay-color-lighter);" />
         </span>
         <el-dropdown @command="settingStore.switchLanguage" class="umar-rl12">
             <svg id="driver-lang" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" width="1.2em" height="1.2em" data-v-12008bb2="">
@@ -14,8 +14,8 @@
             </svg>
             <template #dropdown>
                 <el-dropdown-menu>
-                    <el-dropdown-item :disabled="settingStore.language.name=='zh-cn'" command="zh-cn">简体中文</el-dropdown-item>
-                    <el-dropdown-item :disabled="settingStore.language.name=='en'" command="en">English</el-dropdown-item>
+                    <el-dropdown-item :disabled="settingStore.language.name == 'zh-cn'" command="zh-cn">简体中文</el-dropdown-item>
+                    <el-dropdown-item :disabled="settingStore.language.name == 'en'" command="en">English</el-dropdown-item>
                 </el-dropdown-menu>
             </template>
         </el-dropdown>
@@ -28,13 +28,13 @@
             <span class="umar-l06 uf-s1">{{ userInfo.username ? userInfo.username : settingStore.t('user.login') }}</span>
         </div>
     </div>
-    <Login ref="loginComp"></Login>
+    <Login ref="loginComp" @user="user => userInfo = user"></Login>
 </template>
 
 <script setup>
 import {
     ref,
-    onMounted
+    watch
 } from 'vue';
 import utils from '@/assets/js/utils.js';
 import Login from '@/components/Login.vue';
@@ -44,11 +44,6 @@ import { useSettingStore } from '@/stores/setting';
 const settingStore = useSettingStore();
 const userStore = useUserStore();
 const userInfo = ref(userStore.user);
-userStore.$subscribe((mutation, state) => {
-    if (state.user) {
-        userInfo.value = state.user;
-    }
-});
 
 const loginComp = ref();
 const changeLogin = function () {
@@ -60,17 +55,13 @@ const changeLogin = function () {
                 type: 'warning',
             }).then(() => {
                 userStore.user = {};
+                userInfo.value = {};
                 utils.setUser();
             }).catch(() => { })
     } else {
         loginComp.value.login({ module: 'ledger' });
     }
 };
-
-
-onMounted(() => {
-
-});
 </script>
 
 <style scoped></style>

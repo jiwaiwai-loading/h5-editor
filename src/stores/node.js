@@ -111,10 +111,51 @@ export const useNodeStore = defineStore('nodeStore', () => {
   const save = () => {
     ElMessage.success("保存内容已输出到控制台");
     myTemplate.value['content'] = nodes.value;
-    console.log(myTemplate.value);
-    saveTemplate(myTemplate.value).then(res => {
+    isAnimate.value = false;
+    cancelSelectNode();
+    setTimeout(() => {
+      const cover = getCover();
+      console.log(cover)
+      console.log(myTemplate.value);
+      saveTemplate(myTemplate.value).then(res => {
 
-    })
+      })
+    }, 20);
+
+  }
+
+  /**
+   * 获取封面
+   */
+  const getCover = async () => {
+    let screenshot = document.documentElement.cloneNode(true);
+    screenshot.style.pointerEvents = 'none';
+    screenshot.style.overflow = 'hidden';
+    screenshot.style.webkitUserSelect = 'none';
+    screenshot.style.mozUserSelect = 'none';
+    screenshot.style.msUserSelect = 'none';
+    screenshot.style.oUserSelect = 'none';
+    screenshot.style.userSelect = 'none';
+    screenshot.dataset.scrollX = window.scrollX;
+    screenshot.dataset.scrollY = window.scrollY;
+    let blob = new Blob([screenshot.outerHTML], {
+      type: 'text/html'
+    });
+    
+    // const fileName = "test.txt";
+    // console.log("msSaveOorOpenBlob" in navigator)
+    // if ("msSaveOorOpenBlob" in navigator) {
+    //   //IE 浏览器
+    //   window.navigator.msSaveOorOpenBlob(blob, fileName);
+    // } else {
+    //   //不是IE浏览器
+    //   var url = window.URL.createObjectURL(blob);
+    //   var link = document.createElement("a");
+    //   link.href = url;
+    //   link.setAttribute("download", fileName);
+    //   link.click();
+    // }
+    return blob;
   }
 
   /**
@@ -193,7 +234,7 @@ export const useNodeStore = defineStore('nodeStore', () => {
       const template = JSON.parse(material.json);
       let groupId = 'group_' + currentTime;
       for (let key in template) {
-        for(let i=0; i<template[key].length; i++) {
+        for (let i = 0; i < template[key].length; i++) {
           template[key][i].id = key + '_' + i + '_' + currentTime;
           template[key][i].group = groupId;
         }
@@ -270,7 +311,7 @@ export const useNodeStore = defineStore('nodeStore', () => {
 
       cacheSteps('addNode', type);
     }
-    
+
     sendMsg('addNode');
   }
 

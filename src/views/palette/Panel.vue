@@ -1,5 +1,5 @@
 <template>
-    <div class="uabs uof uc-bg">
+    <div id="driver-palette" class="uabs uof uc-bg">
         <div v-for="item, type in data" :key="'node_' + page + '_view_' + type" :id="'node_' + page + '_view_' + type">
             <template v-if="type == 'text'">
                 <div v-for="node in item" v-show="node.show === false ? false : true" :key="node.id" :id="node.id" :style="parseOuterStyle(node, type)" @click.stop.prevent="nodeStore.selectNode(node)">
@@ -720,13 +720,13 @@ onMounted(() => {
     box-sizing: border-box;
     transform: matrix(1, 0, 0, 1, 0, 0);
     word-break: break-all;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-    mask-size: contain;
-    -webkit-mask-size: contain;
-    mask-position: center;
-    -webkit-mask-position: center;
     user-select: none;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
 }
 
 .my-text {

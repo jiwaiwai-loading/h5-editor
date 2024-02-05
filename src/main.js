@@ -12,11 +12,13 @@ import '@/assets/css/animate.css'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 
 const app = createApp(App)
+
 const userStore = useUserStore(pinia)
 const user = utils.getUser()
 if (utils.isDefine(user)) {
     userStore.user = user;
 }
+
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }

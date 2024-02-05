@@ -1,11 +1,11 @@
 <template>
-  <div v-if="type == 'music'">
+  <div v-if="type == 'music'" class="ub ub-ver ub-f1">
     <div class="ub ub-wrap">
       <div v-for="li, i in dataList.data" :key="i" class="umar-a06">
         <MusicBox :data="li"></MusicBox>
       </div>
     </div>
-    <div class="ub ub-ac ub-pc ub-fv ub-fh">
+    <div class="ub ub-ac ub-pc">
       <div v-if="dataList.isReturn">
         <el-empty v-if="dataList.data.length == 0" :image-size="100"></el-empty>
       </div>

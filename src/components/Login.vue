@@ -46,6 +46,7 @@ import utils from '@/assets/js/utils.js';
 import QRCode from 'qrcode';
 import { useUserStore } from '@/stores/user';
 import { useSettingStore } from '@/stores/setting';
+const emit = defineEmits(['user', 'refreshMenu']);
 const userStore = useUserStore();
 const settingStore = useSettingStore();
 
@@ -84,6 +85,7 @@ const cmsLogin = function (params) {
           data.value.loginStatus = 1;
           data.value.loginVisible = false;
           utils.setUser(res.data);
+          emit('user', res.data);
         }
       } else {
         ElMessage.error(res.msg);
@@ -119,7 +121,6 @@ const createQRCode = function () {
   });
 };
 
-const emit = defineEmits(['refreshMenu']);
 defineExpose({ login });
 watch(() => data.value.loginVisible, async (newVal, oldVal) => {
   if (!newVal) {

@@ -69,9 +69,9 @@
                     </el-tooltip>
                 </div>
                 <div>
-                    <el-checkbox-button v-model="attr['font-weight']" @change="val => updateAttr('style', 'font-weight', val, true)" true-label="bolder" title="加粗"><span class="uicon-bolder"></span></el-checkbox-button>
-                    <el-checkbox-button v-model="attr['font-style']" @change="val => updateAttr('style', 'font-style', val, true)" true-label="italic" title="斜体"><span class="uicon-italic"></span></el-checkbox-button>
-                    <el-checkbox-button v-model="attr['text-decoration']" @change="val => updateAttr('style', 'text-decoration', val, true)" true-label="underline" title="下划线"><span class="uicon-underline"></span></el-checkbox-button>
+                    <el-checkbox-button v-model="attr['font-weight']" @change="val => updateAttr('style', 'font-weight', val, true)" true-label="bolder" name="加粗"><span class="uicon-bolder"></span></el-checkbox-button>
+                    <el-checkbox-button v-model="attr['font-style']" @change="val => updateAttr('style', 'font-style', val, true)" true-label="italic" name="斜体"><span class="uicon-italic"></span></el-checkbox-button>
+                    <el-checkbox-button v-model="attr['text-decoration']" @change="val => updateAttr('style', 'text-decoration', val, true)" true-label="underline" name="下划线"><span class="uicon-underline"></span></el-checkbox-button>
                 </div>
             </div>
             <div class="ub ub-pc ubb">

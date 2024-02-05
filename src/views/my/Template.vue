@@ -6,12 +6,16 @@
     </div>
     <el-tabs v-if="userInfo.token" v-model="currentCategory" @tab-change="getMyInviteFromCategory('tabChange')" size="mini" class="invite">
         <el-tab-pane v-for="category, index in inviteCategory" :key="index" :label="category.name" :name="category.id">
-            <div v-if="invite[category.id] && invite[category.id].data" class="ub umar-l04 ub-wrap">
-                <div @click="nodeStore.newNodes()" class="ub ub-ac ub-pc uba-dashed uc-border-gray ubtn uc-bg-gray umar-a06" style="height: 200px; width: 100px;">
-                    <el-icon class="uf-s2 uc-font-main">
-                        <CirclePlusFilled />
-                    </el-icon>
-                </div>
+            <div v-if="invite[category.id]" class="ub umar-l04 ub-wrap">
+                <template v-if="invite[category.id].isReturn">
+                    <div @click="nodeStore.newNodes()" class="ub ub-ac ub-pc uba-dashed uc-border-gray ubtn uc-bg-gray umar-a06" style="height: 200px; width: 100px;">
+                        <el-icon class="uf-s2 uc-font-main">
+                            <CirclePlusFilled />
+                        </el-icon>
+                    </div>
+                </template>
+                <div v-else v-loading="true" class="ub ub-f1 ub-ac ub-pc umar-t2"></div>
+
                 <div v-for="item, idx in invite[category.id].data" :key="idx" @click="nodeStore.newNodes(item)" class="ub uba ubtn uc-bg-gray umar-a06" style="height: 200px; width: 100px;">
                     <el-image :src="item.cover + '?v=' + random" fit="fill" class="ub ub-f1 ub-ac ub-pc">
                         <template #error>
@@ -43,56 +47,29 @@
                     </div>
                 </div>
             </div>
-            <div v-else class="ub ub-ac ub-pc" style="margin-top: 100px;">
-                <div v-if="invite[category.id] && invite[category.id].isReturn" class="ub ub-ver ub-ac ub-pc">
-                    <img src="@/assets/images/empty.png" style="width: 150px;" />
-                    <div class="uf-s1 uc-font-gray1">该分类下暂无模板</div>
-                    <div class="umar-t2"><el-button @click="nodeStore.newNodes()" icon="el-icon-circle-plus-outline" type="primary" plain size="small">{{ settingStore.concatLang(['common.add', 'menu.template']) }}</el-button></div>
-                </div>
-                <div v-else v-loading="true" class="uabs"></div>
-            </div>
         </el-tab-pane>
     </el-tabs>
-    <div v-else class="ub ub-ac ub-pc ub-ver upad-a1" style="margin-top: 100px;">
-        <img src="@/assets/images/noauth.png" style="width: 150px;" />
-        <div class="uf-s1 uc-font-gray1 ut-c"> {{ settingStore.t('user.logged') }}</div>
-        <div class="umar-t2">
-            <el-button @click="loginCom.login({ module: 'ledger' })" :icon="User" type="primary" plain size="small">{{ settingStore.t('user.login') }}</el-button>
-        </div>
-    </div>
-    <Login ref="loginCom"></Login>
+    <LoginTips @login="login" @logout="userInfo = {}"></LoginTips>
+
     <Category ref="categoryCom" @edit="onEditCategory" @delete="onDelCategory"></Category>
 </template>
 
 <script setup>
 import {
     ref,
+    watch,
     onMounted
 } from 'vue';
 import { getCategory, editTemplate, delTemplate, listTemplate } from '@/api/my.js';
-import utils from '@/assets/js/utils.js';
-import Login from '@/components/Login.vue';
 import Category from './Category.vue';
-import { User } from '@element-plus/icons-vue';
-import { useUserStore } from '@/stores/user';
+import LoginTips from '@/views/components/LoginTips.vue';
 import { useNodeStore } from '@/stores/node';
 import { useSettingStore } from '@/stores/setting';
 import { Rank, Delete, EditPen } from '@element-plus/icons-vue';
 const random = ref(new Date().getTime());
-const userStore = useUserStore();
 const nodeStore = useNodeStore();
-const userInfo = ref(userStore.user);
+const userInfo = ref({});
 const settingStore = useSettingStore();
-userStore.$subscribe((mutation, state) => {
-    if (state.user) {
-        userInfo.value = state.user;
-        if (state.user.token) {
-            getMyInviteCategory();
-            getMyInviteFromCategory('reset');
-        }
-    }
-});
-const loginCom = ref();
 const inviteCategory = ref([]);
 const currentCategory = ref(0);
 const invite = ref({
@@ -104,6 +81,11 @@ const invite = ref({
     }
 });
 
+const login = (user) => {
+    userInfo.value = user;
+    init();
+}
+
 //展示模板分类
 const categoryCom = ref();
 const showCategory = function () {
@@ -112,23 +94,21 @@ const showCategory = function () {
 
 //获取模板分类
 const getMyInviteCategory = function () {
-    if (userInfo.value.token) {
-        getCategory().then(res => {
-            if (res.code == 0) {
-                inviteCategory.value = res.data;
-            } else {
-                ElMessage.error(res.msg);
-            }
-        }).catch(err => {
-            console.log(err)
-            ElMessage.error("获取分类失败");
-        }).finally(() => {
-            inviteCategory.value.unshift({
-                id: 0,
-                name: '默认'
-            })
-        });
-    }
+    getCategory().then(res => {
+        if (res.code == 0) {
+            inviteCategory.value = res.data;
+        } else {
+            ElMessage.error(res.msg);
+        }
+    }).catch(err => {
+        console.log(err)
+        ElMessage.error("获取分类失败");
+    }).finally(() => {
+        inviteCategory.value.unshift({
+            id: 0,
+            name: '默认'
+        })
+    });
 };
 
 //监听模板分类编辑
@@ -173,41 +153,39 @@ const moveInvite = function (id, idx, item) { //移动分类
 
 //获取模板列表
 const getMyInviteFromCategory = function (type, id) {
-    if (userInfo.value.token) {
-        const cid = id >= 0 ? id : currentCategory.value;
-        if (!invite.value[cid] || type == 'reset') {
-            invite.value[cid] = {
-                pageIndex: 1,
-                isReturn: false,
-                hasMore: true,
-                data: []
-            }
+    const cid = id >= 0 ? id : currentCategory.value;
+    if (!invite.value[cid] || type == 'reset') {
+        invite.value[cid] = {
+            pageIndex: 1,
+            isReturn: false,
+            hasMore: true,
+            data: []
         }
-        if (type == 'tabChange' && invite.value[cid].data.length > 0) {
-            return;
-        }
-        invite.value[cid].isReturn = false;
+    }
+    if (type == 'tabChange' && invite.value[cid].data.length > 0) {
+        return;
+    }
+    invite.value[cid].isReturn = false;
 
-        listTemplate(cid, invite.value[cid].pageIndex).then(res => {
-            if (res.code == 0) {
-                if (res.data.count > 0) {
-                    let data = res.data.data;
-                    invite.value[cid].data = invite.value[cid].data.concat(data);
-                    if (data.length < res.data.count) {
-                        invite.value[cid].hasMore = true;
-                    }
-                } else {
-                    invite.value[cid].hasMore = false;
+    listTemplate(cid, invite.value[cid].pageIndex).then(res => {
+        if (res.code == 0) {
+            if (res.data.count > 0) {
+                let data = res.data.data;
+                invite.value[cid].data = invite.value[cid].data.concat(data);
+                if (data.length < res.data.count) {
+                    invite.value[cid].hasMore = true;
                 }
             } else {
-                ElMessage.error(res.msg);
+                invite.value[cid].hasMore = false;
             }
-        }).catch(err => {
-            console.log(err)
-        }).finally(() => {
-            invite.value[cid].isReturn = true;
-        });
-    }
+        } else {
+            ElMessage.error(res.msg);
+        }
+    }).catch(err => {
+        console.log(err)
+    }).finally(() => {
+        invite.value[cid].isReturn = true;
+    });
 };
 
 //删除模板
@@ -251,10 +229,12 @@ const editMyInviteTitle = function (item) {
     }
 }
 
-onMounted(() => {
-    getMyInviteCategory();
-    getMyInviteFromCategory('reset');
-});
+const init = () => {
+    if (userInfo.value.token) {
+        getMyInviteCategory();
+        getMyInviteFromCategory('reset');
+    }
+}
 </script>
 
 <style>

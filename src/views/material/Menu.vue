@@ -25,7 +25,10 @@
         <div v-show="menuType == 'music'" class="ub ub-f1 ub-ver">
             <Union :data="material.music && material.music.data" :type="menuType"></Union>
         </div>
-        <div v-show="!['my', 'template', 'material', 'background', 'music'].includes(menuType)" class="ub ub-f1 ub-ac ub-pc">
+        <div v-show="menuType == 'upload'" class="ub ub-f1 ub-ver">
+            <MyMaterial></MyMaterial>
+        </div>
+        <div v-show="['effects', 'map', 'form'].includes(menuType)" class="ub ub-f1 ub-ac ub-pc">
             <el-empty />
         </div>
     </div>
@@ -38,13 +41,14 @@ import {
 } from 'vue';
 import Template from '../my/Template.vue';
 import Union from './Union.vue';
+import MyMaterial from '@/views/my/Material.vue';
 import { useMenuStore } from '@/stores/menu';
 import { useSettingStore } from '@/stores/setting';
 const settingStore = useSettingStore();
 const menuStore = useMenuStore();
 const material = ref(menuStore.material);
 
-const menuType = ref('my');
+const menuType = ref('upload');
 const menu = ref([{
     title: 'user.my',
     icon: 'CopyDocument',

@@ -1,5 +1,5 @@
 <template>
-    <div id="driver-palette" :style="'transform:scale(' + scale + ');'">
+    <div :style="'transform:scale(' + scale + ');'">
         <div @mousewheel.stop.prevent="" class="editor-area ub ub-ac ub-pc uradius-a03 uz2" :style="'width:' + size.width + 'px;height:' + size.height + 'px'">
             <div class="phone-bg ub-img5 "></div>
             <div v-if="nodeStore.myTemplate.assets && nodeStore.myTemplate.assets.music" class="uabs-tr uz2">

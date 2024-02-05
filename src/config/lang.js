@@ -38,7 +38,7 @@ const messages = {
             my: '我的',
             login: '登录',
             logout: '退出',
-            logged: '您还未登录，登录后查看模板',
+            logged: '您还未登录，登录后查看',
             quit: '您确定要退出登录吗？',
         },
         menu: {
@@ -57,9 +57,6 @@ const messages = {
             change: '确定要覆盖当前模板吗？'
         },
         text: {
-            h1: '点击添加标题文字',
-            h2: '点击添加副标题文字',
-            h3: '点击添加正文文字',
             fontFamily: '字体',
             fontSize: '字号',
             letterSpacing: '字间距',
@@ -69,6 +66,12 @@ const messages = {
             rainbow: '彩虹',
             add: '添加文字',
             edit: '双击编辑文字',
+        },
+        floder: {
+            rename: '重命名',
+            delFloder: '确定要删除此文件夹吗？删除后文件将移动到默认文件夹下！',
+            placeholder: '请输入文件夹名称',
+            default: '默认文件夹',
         },
         dom: {
             bgc: '背景颜色',
@@ -224,13 +227,11 @@ const messages = {
             my: 'My',
             login: 'Login',
             logout: 'Logout',
-            logged: 'You are not logged in yet, Please log in to view the template',
-            quit: 'Are you sure you want to quit?'
+            logged: 'You are not logged in yet, Please log in to view.',
+            quit: 'Are you sure you want to quit?',
+
         },
         text: {
-            h1: 'Click Add title text',
-            h2: 'Click Add subtitle text',
-            h3: 'Click Add body text',
             fontFamily: 'Font family',
             fontSize: 'Font size',
             letterSpacing: 'Letter spacing',
@@ -240,6 +241,12 @@ const messages = {
             rainbow: 'Rainbow',
             add: 'Add text',
             edit: 'Double click edit text',
+        },
+        floder: {
+            rename: 'Rename',
+            delFloder: 'Are you sure you want to delete this folder? The files will be moved to the default folder after deletion!',
+            placeholder: 'Please enter a folder name',
+            default: 'Default'
         },
         template: {
             classify: 'Classify',
