@@ -22,7 +22,8 @@ Please refer to the package.json document for details.
 
 ## 体验 Demo
 
-See [H5 Editor](https://jiwaiwai-loading.github.io/h5-editor/)
+current version [当前版本](https://jiwaiwai-loading.github.io/h5-editor/)
+next version [最新版本](https://editor.zhifoukeji.com)
 
 
 ## 功能介绍  Function Introduction
