@@ -92,6 +92,3 @@ npm run build
 ## 别忘了 Don't forget
 如果觉得有用，请给一个Star吧，Star 是我更新的动力哦  
 If you find it useful, please give a Star. A Star is my motivation for updates.
-
-
->  *The above English text was translated using ChatGPT.*
